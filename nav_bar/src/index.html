@@ -46,10 +46,41 @@
             </div>
 
         </div>
+        <div class="rest">
+            <div class="rest1 bg-emerald-300 mt-400">
+                <h1>This is rest1</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae libero voluptatibus sit? Officia
+                    beatae ipsa odio maiores consectetur, quaerat fugiat eos ut accusamus asperiores ad blanditiis
+                    assumenda reiciendis dicta vitae.</p>
+            </div>
+            <div class="rest2 bg-amber-600 mt-400">
+                <h1>This is rest2</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima impedit recusandae sapiente magnam
+                    ipsa quod consequuntur debitis nulla, labore alias atque commodi eos! Temporibus rem deleniti, aut
+                    quam doloribus commodi?</p>
+            </div>
+            <div class="rest3 bg-cyan-500 mt-400">
+                <h1>This is rest3</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias praesentium expedita a iure
+                    reprehenderit architecto eum, distinctio exercitationem consequuntur magnam sint, doloremque quia
+                    in! Atque eveniet autem mollitia adipisci aspernatur.</p>
+            </div>
+            <div class="rest4 bg-amber-400 mt-400">
+                <h1>This is rest4</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias praesentium expedita a iure
+                    reprehenderit architecto eum, distinctio exercitationem consequuntur magnam sint, doloremque quia
+                    in! Atque eveniet autem mollitia adipisci aspernatur.</p>
+            </div>
+            <div class="rest5 bg-fuchsia-400 mt-400">
+                <h1>This is rest5</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias praesentium expedita a iure
+                    reprehenderit architecto eum, distinctio exercitationem consequuntur magnam sint, doloremque quia
+                    in! Atque eveniet autem mollitia adipisci aspernatur.</p>
+            </div>
+        </div>
     </header>
     <script>
         document.getElementById("b1").addEventListener("click", () => {
-
             document.getElementById("div0").classList.toggle("flex-col");
             document.getElementById("div1").classList.toggle("max-[524px]:hidden");
             document.getElementById("div2").classList.toggle("max-[524px]:hidden");
@@ -58,8 +89,53 @@
             document.getElementById("div5").classList.toggle("max-[524px]:hidden");
             document.getElementById("div1").classList.toggle("max-[524px]:h-[15%]");
             document.getElementById("div1").classList.toggle("h-[40%]");
+        });
 
-        })
+        // Reset the nav bar when resizing the window
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 524) {
+                document.getElementById("div0").classList.remove("flex-col");
+                document.getElementById("div1").classList.add("max-[524px]:hidden");
+                document.getElementById("div2").classList.add("max-[524px]:hidden");
+                document.getElementById("div3").classList.add("max-[524px]:hidden");
+                document.getElementById("div4").classList.add("max-[524px]:hidden");
+                document.getElementById("div5").classList.add("max-[524px]:hidden");
+            }
+        });
+
+        function smoothScrollTo(target) {
+            const element = document.querySelector(target);
+            const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 2000; // 4 seconds
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            function easeInOutQuad(t) {
+                return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Scroll to sections when clicking navigation buttons
+        document.getElementById("div2").addEventListener("click", () => smoothScrollTo(".rest2"));
+        document.getElementById("div3").addEventListener("click", () => smoothScrollTo(".rest3"));
+        document.getElementById("div4").addEventListener("click", () => smoothScrollTo(".rest4"));
+        document.getElementById("div5").addEventListener("click", () => smoothScrollTo(".rest5"));
+
+
 
     </script>
 </body>
