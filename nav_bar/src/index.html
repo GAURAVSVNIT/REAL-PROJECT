@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Amazon</title>
+    <style>
+        @layer utilities {
+            .font-franklin {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#1f1f1f]">
+    <header class="h-[100vh]">
+        <div id="nav_bar" class=" bg-[#0f1111] w-full bg-[#0f1111] text-white flex items-center">
+
+            <div id="div0"
+                class=" max-[524px]:h-[fit-content] h-[100px] w-full  min-[524px]:flex  justify-around items-center font-franklin">
+                <div
+                    class="min-[524px]:hidden w-[100px] h-[100px] flex items-center justify-center text-orange-500  text-3xl cursor-pointer text-center hover:border-2 hover:border-[blueviolet] hover:rounded-[5px]">
+                    <i id="b1" class="fa-solid fa-square-poll-horizontal"></i>
+                </div>
+                <div id="div1"
+                    class=" max-[524px]:hidden max-[524px]:flex-end sm:margin-top-[100px] px-[15px] py-[10px] rounded-[5px] transition-colors duration-300 ease-in-out hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Home</div>
+                <div id="div2"
+                    class="max-[524px]:hidden px-[15px] py-[10px] rounded-[5px] transition-colors duration-300 ease-in-out hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Our Team</div>
+                <div id="div3"
+                    class="max-[524px]:hidden px-[15px] py-[10px] rounded-[5px] transition-colors duration-300 ease-in-out hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Menu</div>
+                <div id="div4"
+                    class="max-[524px]:hidden px-[15px] py-[10px] rounded-[5px] transition-colors duration-300 ease-in-out hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Reviews</div>
+                <div id="div5"
+                    class="max-[524px]:hidden px-[15px] py-[10px] rounded-[5px] transition-colors duration-300 ease-in-out hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Centres</div>
+
+            </div>
+
+        </div>
+    </header>
+    <script>
+        document.getElementById("b1").addEventListener("click", () => {
+
+            document.getElementById("div0").classList.toggle("flex-col");
+            document.getElementById("div1").classList.toggle("max-[524px]:hidden");
+            document.getElementById("div2").classList.toggle("max-[524px]:hidden");
+            document.getElementById("div3").classList.toggle("max-[524px]:hidden");
+            document.getElementById("div4").classList.toggle("max-[524px]:hidden");
+            document.getElementById("div5").classList.toggle("max-[524px]:hidden");
+            document.getElementById("div1").classList.toggle("max-[524px]:h-[15%]");
+            document.getElementById("div1").classList.toggle("h-[40%]");
+
+        })
+
+    </script>
+</body>
+
+</html>
